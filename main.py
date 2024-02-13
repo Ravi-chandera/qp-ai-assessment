@@ -14,15 +14,10 @@ from langchain.chains import RetrievalQA
 
 DB_FAISS_PATH = 'vectorstore/db_faiss'
 
-custom_prompt_template = """You are a highly experienced individual in the filed of disaster handling and management.
-You have a bachelors degree in disaster management and you have a masters and phd in the same filed. You can predict the timeline
-of the events. Also you are accuracte all the time about your prediction and for that you got many awards for your work towards disaster prediction.
-You have published various research papers and people recognitize you for your contribution towards disaster management.
-
+custom_prompt_template = """Use the context to answer the question. 
+If the answer is not found in the document - say I didn't find excat thing and then use your knwoledge to answer in a best possible way. 
 Context: {context}
 Question: {question}
-
-try keeping information most useful technically.
 Helpful answer:
 """
 
