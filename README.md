@@ -1,5 +1,5 @@
 # Chatbot to ask questions from multiple files
-You can upload multiple words files or pdfs.
+You can upload multiple word files or pdfs.
 ## Tech stack used
 1. Langchain
 2. LLama v2 (7B) for inferencing
