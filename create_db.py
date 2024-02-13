@@ -1,6 +1,6 @@
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import FAISS
-from langchain.document_loaders import PyPDFLoader, DirectoryLoader
+from langchain.document_loaders import PyPDFLoader,DirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 DATA_PATH = 'data/'
@@ -9,8 +9,8 @@ DB_FAISS_PATH = 'vectorstore/db_faiss'
 # Create vector database
 def create_vector_db():
     loader = DirectoryLoader(DATA_PATH,
-                             glob='*.pdf',
-                             loader_cls=PyPDFLoader)
+                             glob=['*.pdf', '*.docx'],  # Include Word files
+                             loader_cls={'.pdf': PyPDFLoader, '.docx': Docx2txtLoader})  # Map file extensions to loaders
 
     documents = loader.load()
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=500,
