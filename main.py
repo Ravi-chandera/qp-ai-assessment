@@ -14,7 +14,7 @@ from langchain.chains import RetrievalQA
 
 DB_FAISS_PATH = 'vectorstore/db_faiss'
 
-custom_prompt_template = """Use the context to answer the question. 
+custom_prompt_template = """Use the context to answer the question. In case of wrong spelled word, find most possible word.
 If the answer is not found in the document - say I didn't find excat thing and then use your knwoledge to answer in a best possible way. 
 Context: {context}
 Question: {question}
